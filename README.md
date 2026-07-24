@@ -34,7 +34,7 @@ This project consists of:
 
 # System Architecture
 
-.. figure:: ../result/wave.png
+![Waveform Description](../png/block diagram.png)
 
 ---
 
@@ -71,7 +71,8 @@ This pattern is sufficient for demonstrating the basic write/read/compare operat
 
 # Simulation Results
 
-.. figure:: ../doc/circ01.png 
+![Waveform Description](../result/wave.png)
+
 ---
 
 # Fault Injection
