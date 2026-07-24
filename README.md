@@ -15,7 +15,7 @@ This project consists of:
 * A data checker for memory verification
 * Fault injection support
 * A simulation testbench
-* Waveform verification using ModelSim, Vivado Simulator, or GTKWave
+* Waveform verification using GTKWave
 
 ---
 
@@ -32,32 +32,6 @@ This project consists of:
 
 ---
 
-# Project Structure
-
-```text
-Simple_MBIST_Controller/
-│
-├── rtl/
-│   ├── sram_16x8.v
-│   ├── mbist_fsm.v
-│   ├── mbist_top.v
-│   └── tb_mbist.v
-│
-├── wave/
-│   ├── wave.vcd
-│   └── waveform.png
-│
-├── docs/
-│   ├── architecture.png
-│   ├── fsm_diagram.png
-│   └── report.pdf
-│
-├── README.md
-└── LICENSE
-```
-
----
-
 # System Architecture
 
 The MBIST system consists of four main components:
@@ -66,31 +40,6 @@ The MBIST system consists of four main components:
 * **SRAM** – A 16×8-bit memory under test.
 * **Checker** – Compares the read data with the expected test pattern.
 * **Fault Injection Logic** – Simulates memory faults for verification.
-
-```
-                 +----------------------+
-                 |   MBIST Controller   |
-                 |      (FSM Logic)     |
-                 +----------+-----------+
-                            |
-          Address ----------+
-          Write Enable -----+
-          Write Data -------+
-                            |
-                            v
-                   +----------------+
-                   |   SRAM 16×8    |
-                   +----------------+
-                            |
-                       Read Data
-                            |
-                            v
-                   +----------------+
-                   |    Checker     |
-                   +----------------+
-                            |
-                      PASS / FAIL
-```
 
 ---
 
@@ -122,60 +71,6 @@ Binary representation:
 ```
 
 This pattern is sufficient for demonstrating the basic write/read/compare operation and detecting simple memory faults.
-
----
-
-# Verification Flow
-
-```
-Reset
-   │
-   ▼
-Enable MBIST
-   │
-   ▼
-Write Pattern
-   │
-   ▼
-Read Memory
-   │
-   ▼
-Compare Data
-   │
-   ▼
-PASS / FAIL
-   │
-   ▼
-Done
-```
-
----
-
-# Simulation
-
-### ModelSim
-
-```bash
-vlib work
-
-vlog rtl/*.v
-
-vsim tb_mbist
-
-add wave *
-
-run -all
-```
-
-### Icarus Verilog
-
-```bash
-iverilog -o sim rtl/*.v
-
-vvp sim
-
-gtkwave wave.vcd
-```
 
 ---
 
@@ -243,6 +138,4 @@ fail <= 1'b1;
 * `done = 1`
 
 **Result:** FAIL (Expected)
-
----
 
