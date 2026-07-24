@@ -34,7 +34,7 @@ This project consists of:
 
 # System Architecture
 
-![Waveform Description](../png/block%20diagram.png)
+![Waveform Description](png/block%20diagram.png)
 
 ---
 
@@ -71,7 +71,7 @@ This pattern is sufficient for demonstrating the basic write/read/compare operat
 
 # Simulation Results
 
-![Waveform Description](../result/wave.png)
+![Waveform Description](result/wave.png)
 
 ---
 
