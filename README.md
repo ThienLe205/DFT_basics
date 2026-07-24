@@ -34,12 +34,7 @@ This project consists of:
 
 # System Architecture
 
-The MBIST system consists of four main components:
-
-* **MBIST Controller** – Generates memory addresses and controls the test sequence.
-* **SRAM** – A 16×8-bit memory under test.
-* **Checker** – Compares the read data with the expected test pattern.
-* **Fault Injection Logic** – Simulates memory faults for verification.
+.. figure:: ../result/wave.png
 
 ---
 
@@ -74,22 +69,9 @@ This pattern is sufficient for demonstrating the basic write/read/compare operat
 
 ---
 
-# Expected Simulation Results
+# Simulation Results
 
-The waveform should demonstrate:
-
-* FSM transitions:
-
-  * IDLE
-  * WRITE_PATTERN
-  * READ_COMPARE
-  * DONE
-* Address counter increments from **0 to 15**
-* SRAM receives the test pattern `8'hAA`
-* Memory contents are read back correctly
-* `done` is asserted after the test completes
-* `fail` remains **0** during normal operation
-
+.. figure:: ../doc/circ01.png 
 ---
 
 # Fault Injection
