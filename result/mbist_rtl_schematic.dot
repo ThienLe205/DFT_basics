@@ -1,0 +1,32 @@
+digraph "mbist_top" {
+label="mbist_top";
+rankdir="LR";
+remincross=true;
+n1 [ shape=diamond, label="a_bus", color="black", fontcolor="black" ];
+n2 [ shape=octagon, label="clk", color="black", fontcolor="black" ];
+n3 [ shape=diamond, label="d_from_mem", color="black", fontcolor="black" ];
+n4 [ shape=diamond, label="d_to_mem", color="black", fontcolor="black" ];
+n5 [ shape=octagon, label="done", color="black", fontcolor="black" ];
+n6 [ shape=octagon, label="fail", color="black", fontcolor="black" ];
+n7 [ shape=octagon, label="fault", color="black", fontcolor="black" ];
+n8 [ shape=octagon, label="rst_n", color="black", fontcolor="black" ];
+n9 [ shape=octagon, label="test_en", color="black", fontcolor="black" ];
+n10 [ shape=diamond, label="w_en", color="black", fontcolor="black" ];
+c18 [ shape=record, label="{{<p2> clk|<p11> data_in|<p8> rst_n|<p12> start_test}|ctrl\nmbist_fsm|{<p13> addr_out|<p14> data_out|<p15> done_flag|<p16> err_flag|<p17> we_out}}",  ];
+c23 [ shape=record, label="{{<p19> adr|<p2> clk|<p20> din|<p7> fault|<p21> we}|sram_inst\nsram_16x8|{<p22> dout}}",  ];
+c18:p13:e -> n1:w [color="black", fontcolor="black", style="setlinewidth(3)", label=""];
+n1:e -> c23:p19:w [color="black", fontcolor="black", style="setlinewidth(3)", label=""];
+c18:p17:e -> n10:w [color="black", fontcolor="black", label=""];
+n10:e -> c23:p21:w [color="black", fontcolor="black", label=""];
+n2:e -> c18:p2:w [color="black", fontcolor="black", label=""];
+n2:e -> c23:p2:w [color="black", fontcolor="black", label=""];
+c23:p22:e -> n3:w [color="black", fontcolor="black", style="setlinewidth(3)", label=""];
+n3:e -> c18:p11:w [color="black", fontcolor="black", style="setlinewidth(3)", label=""];
+c18:p14:e -> n4:w [color="black", fontcolor="black", style="setlinewidth(3)", label=""];
+n4:e -> c23:p20:w [color="black", fontcolor="black", style="setlinewidth(3)", label=""];
+c18:p15:e -> n5:w [color="black", fontcolor="black", label=""];
+c18:p16:e -> n6:w [color="black", fontcolor="black", label=""];
+n7:e -> c23:p7:w [color="black", fontcolor="black", style="setlinewidth(3)", label=""];
+n8:e -> c18:p8:w [color="black", fontcolor="black", label=""];
+n9:e -> c18:p12:w [color="black", fontcolor="black", label=""];
+}
