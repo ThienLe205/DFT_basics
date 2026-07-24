@@ -34,7 +34,7 @@ This project consists of:
 
 # System Architecture
 
-![Waveform Description](../png/block diagram.png)
+![Waveform Description](../png/block%20diagram.png)
 
 ---
 
